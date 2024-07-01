@@ -5,7 +5,7 @@ RUN apt-get update && \
 
 COPY . .
 
-RUN nvm clean install
+RUN mvn clean install
 
 FROM openjdk:17-jdk-slim
 
