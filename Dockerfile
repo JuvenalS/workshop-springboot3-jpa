@@ -1,7 +1,14 @@
-FROM maven:3.8.2-jdk-17 AS build
+FROM ubuntu:latest AS build
+
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get clean
+
+WORKDIR /app
 
 COPY . .
 
+RUN chmod +x maven
 RUN mvn clean package -Pprod -DskipTests
 
 FROM openjdk:17-jdk-slim
