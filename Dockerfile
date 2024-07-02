@@ -8,7 +8,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x maven
 RUN mvn clean package -Pprod -DskipTests
 
 FROM openjdk:17-jdk-slim
