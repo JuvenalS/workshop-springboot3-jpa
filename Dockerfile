@@ -2,7 +2,7 @@ FROM maven:3-eclipse-temurin-17 AS build
 
 COPY . .
 
-RUN mvnclean package -DskipTests
+RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-alpine
 
